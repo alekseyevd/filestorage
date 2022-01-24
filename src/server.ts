@@ -11,7 +11,7 @@ const server = new HttpServer({
 
 (async () => {
   try {
-    if (!fs.existsSync(STORAGE_DIR)) await fs.promises.mkdir('storage')
+    if (!fs.existsSync(STORAGE_DIR)) await fs.promises.mkdir(STORAGE_DIR)
 
     server.listen(() => {
       console.log(`Server listening on port ${PORT}`)
