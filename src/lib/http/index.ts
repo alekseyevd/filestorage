@@ -1,5 +1,5 @@
 import { createServer, IncomingMessage, Server, ServerResponse } from 'http'
-import { IRoute, IErrnoException} from './interfaces'
+import { IRoute } from './interfaces'
 import { Context } from './Context'
 import FileServer from './static'
 import stream from 'stream'
@@ -45,7 +45,6 @@ export default class HttpServer {
     this._static = params.static ? new FileServer(params.static) : undefined
 
     this._server = createServer(this._listener.bind(this))
-
   }
 
   private async _listener(req: IncomingMessage, res: ServerResponse) { 

@@ -37,7 +37,6 @@ export default class Route implements IRoute {
     } catch (error) {
       return undefined
     }
-    
   }
 
   private authorize(user: any): boolean {
@@ -48,9 +47,6 @@ export default class Route implements IRoute {
     const bodySchema = this._validate?.body
     const querySchema = this._validate?.query
     const paramsSchema = this._validate?.params
-    const filesSchema = this._validate?.files
-    
-    
 
     if (bodySchema) {
       const { body } = await ctx.parseBody()
@@ -87,20 +83,9 @@ export default class Route implements IRoute {
 
     const errors = await this.validate(ctx)
     if (errors.length) throw new Error(errors.join(', '))
-
-    //const context = this.addPropertyToContext(ctx, 'user', user)
   
     return this._handler(ctx)
   }
-
-  // private addPropertyToContext(context: IContext, key: string, value: any): PuppyContext {
-  //   Object.defineProperty(context, key, {
-  //     get: function() {
-  //       return value
-  //     }
-  //   })
-  //   return context as PuppyContext
-  // }
 
   get method() {
     return this._method

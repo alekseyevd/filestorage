@@ -5,8 +5,6 @@ import fileUploadHandler from './helpers/fileHandler';
 import getQueryParams from './helpers/getQueryParams';
 import { IContext } from './interfaces';
 
-
-
 export class Context implements IContext {
   url: URL
   private _path: string | RegExp
